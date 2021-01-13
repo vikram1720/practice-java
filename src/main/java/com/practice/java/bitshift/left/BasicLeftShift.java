@@ -20,7 +20,6 @@ public class BasicLeftShift {
         log.info("-2 << 5 = {}", Integer.toBinaryString(-2 << 5));
     }
 
-
     public static void main(String[] args) {
         log.info("Basic Left Shift!");
         basic();
