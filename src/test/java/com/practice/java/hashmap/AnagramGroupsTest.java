@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,14 +19,10 @@ class AnagramGroupsTest {
 
     private List<String> input1;
 
-    private List<List<String>> solution1;
-
     @BeforeEach
     void setUp() {
         anagramGroups = new AnagramGroups();
-        input1 = List.of("debitcard", "elvis","silent","badcredit","lives","freedom","listen","levis","money");
-        solution1 = List.of(List.of("debitcard","badcredit"), List.of("elvis","lives","levis"),List.of("silent",
-                                                                                                       "listen"));
+        input1 = List.of("debitcard", "elvis", "silent", "badcredit", "lives", "freedom", "listen", "levis", "money");
     }
 
     @Test
