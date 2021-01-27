@@ -20,9 +20,15 @@ class BinarySearchTest {
     }
 
     @Test
-    void binarySearchIndex() {
+    void binarySearchIndexTest() {
         assertEquals(5, binarySearch.binarySearchIndex(243, values));
         assertEquals(-1, binarySearch.binarySearchIndex(400, values));
         assertEquals(2, binarySearch.binarySearchIndex(2, values));
+    }
+
+    @Test
+    void binarySearchFirstOfKTest() {
+        assertEquals(3, binarySearch.binarySearchFirstOfK(108, values));
+        assertEquals(6, binarySearch.binarySearchFirstOfK(285, values));
     }
 }
