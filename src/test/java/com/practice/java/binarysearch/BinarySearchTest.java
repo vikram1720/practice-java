@@ -23,5 +23,6 @@ class BinarySearchTest {
     void binarySearchIndex() {
         assertEquals(5, binarySearch.binarySearchIndex(243, values));
         assertEquals(-1, binarySearch.binarySearchIndex(400, values));
+        assertEquals(2, binarySearch.binarySearchIndex(2, values));
     }
 }
