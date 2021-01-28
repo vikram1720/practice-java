@@ -56,4 +56,33 @@ public class BinarySearch {
         }
         return result;
     }
+
+    public int findLocalMinimumIndex(List<Integer> values, int low, int high) {
+        if (values.size() == 1) {
+            return 0;
+        }
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            int value = values.get(mid);
+            // left start index case
+            if (mid == 0 && value <= values.get(mid + 1)) {
+                return mid;
+            }
+            // right end index case
+            if (mid == values.size() - 1 && value <= values.get(mid - 1)) {
+                return mid;
+            }
+            // local minimum
+            if (mid > 0 && mid < values.size() - 1 && value <= values.get(mid - 1) && value <= values.get(mid + 1)) {
+                return mid;
+            }
+            // navigate left to find local minimum
+            if (mid > 0 && value > values.get(mid - 1)) {
+                return findLocalMinimumIndex(values, low, mid - 1);
+            }
+            // navigate right to find local minimum
+            return findLocalMinimumIndex(values, mid + 1, high);
+        }
+        return -1;
+    }
 }

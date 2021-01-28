@@ -33,10 +33,22 @@ class BinarySearchTest {
     }
 
     @Test
-    void firstElementGreaterThanKey() {
+    void firstElementGreaterThanKeyTest() {
         assertEquals(1, binarySearch.firstElementGreaterThanKeyIndex(-13, values));
         assertEquals(9, binarySearch.firstElementGreaterThanKeyIndex(285, values));
         assertEquals(-1, binarySearch.firstElementGreaterThanKeyIndex(500, values));
         assertEquals(5, binarySearch.firstElementGreaterThanKeyIndex(108, values));
+    }
+
+    @Test
+    void localMinimumIndexTest() {
+        List<Integer> input1 = List.of(9, 6, 3, 14, 5, 7, 4);
+        assertEquals(2, binarySearch.findLocalMinimumIndex(input1, 0, input1.size() - 1));
+        List<Integer> input2 = List.of(23, 8, 15, 2, 3);
+        assertEquals(1, binarySearch.findLocalMinimumIndex(input2, 0, input2.size() - 1));
+        List<Integer> input3 = List.of(1, 2, 3);
+        assertEquals(0, binarySearch.findLocalMinimumIndex(input3, 0, input3.size() - 1));
+        List<Integer> input4 = List.of(3, 2, 1);
+        assertEquals(2, binarySearch.findLocalMinimumIndex(input4, 0, input4.size() - 1));
     }
 }
