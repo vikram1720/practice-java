@@ -22,6 +22,15 @@ class BinaryTreeTraversalTest {
     }
 
     @Test
+    void inOrderTraversalTest() {
+        BinaryTreeNode<Integer> root = BTSampleDataUtils.prepareTree();
+        List<Integer> expectedResult = List.of(28, 271, 0, 6, 561, 17, 3, 314, 2, 401, 641, 1, 257, 6, 271, 28);
+        List<Integer> actualResult = new ArrayList<>();
+        BinaryTreeTraversal.inOrderTraversal(root, actualResult);
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
     void preOrderTraversalWithoutParentTest() {
         BinaryTreeNode<Integer> root = BTSampleDataUtils.prepareTree();
         List<Integer> expectedResult = List.of(314, 6, 271, 28, 0, 561, 3, 17, 6, 2, 1, 401, 641, 257, 271, 28);

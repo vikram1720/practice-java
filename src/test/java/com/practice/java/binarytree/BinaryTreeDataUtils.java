@@ -8,14 +8,10 @@ public final class BinaryTreeDataUtils {
     public static <T> BinaryTreeNode<T> prepareNode(final T rootData, final T leftData, final T rightData) {
         BinaryTreeNode<T> root = new BinaryTreeNode<>(rootData);
         if (leftData != null) {
-            BinaryTreeNode<T> left = new BinaryTreeNode<>(leftData);
-            root.setLeft(left);
-            left.setParent(root);
+            root.setLeft(new BinaryTreeNode<>(leftData));
         }
         if (rightData != null) {
-            BinaryTreeNode<T> right = new BinaryTreeNode<>(rightData);
-            root.setRight(right);
-            right.setParent(right);
+            root.setRight(new BinaryTreeNode<>(rightData));
         }
         return root;
     }
@@ -23,14 +19,8 @@ public final class BinaryTreeDataUtils {
     public static <T> BinaryTreeNode<T> prepareNode(final T rootData, final BinaryTreeNode<T> left,
             final BinaryTreeNode<T> right) {
         BinaryTreeNode<T> root = new BinaryTreeNode<>(rootData);
-        if (left != null) {
-            left.setParent(root);
-            root.setLeft(left);
-        }
-        if (right != null) {
-            right.setParent(root);
-            root.setRight(right);
-        }
+        root.setLeft(left);
+        root.setRight(right);
         return root;
     }
 

@@ -19,16 +19,37 @@ public final class BinaryTreeTraversal {
         }
     }
 
-    public static void inOrderTraversal(final BinaryTreeNode<Integer> root,
-            final List<Integer> traversalData) {
-        if (root != null) {
-            BinaryTreeNode<Integer> left = null;
-            while(root.getLeft() != null) {
-                left = root.getLeft();
+    public static void inOrderTraversal(final BinaryTreeNode<Integer> node, final List<Integer> traversalData) {
+        if (node != null) {
+            BinaryTreeNode<Integer> root = node;
+            boolean leftDone = false;
+            while (root != null) {
+                if (!leftDone) {
+                    while (root.getLeft() != null) {
+                        root = root.getLeft();
+                    }
+                }
+                traversalData.add(root.getData());
+                leftDone = true;
+                // if right child exists
+                if (root.getRight() != null) {
+                    leftDone = false;
+                    root = root.getRight();
+                } else if (root.getParent() != null) { // no right child, then move to parent
+                    while (root.getParent() != null && root == root.getParent()
+                                                                   .getRight()) {
+                        root = root.getParent();
+                    }
+                    // if root is tree root then exit.
+                    if (root.getParent() == null) {
+                        break;
+                    } else {
+                        root = root.getParent();
+                    }
+                } else {
+                    break;
+                }
             }
-
-
-
         }
     }
 

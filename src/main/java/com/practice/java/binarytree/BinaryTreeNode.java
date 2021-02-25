@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.TreeMap;
-
 /**
  * @author <a href="mailto:vikram.sundar@castandcrew.com">Vikram Sundar Subbiah</a>
  */
@@ -14,7 +12,7 @@ import java.util.TreeMap;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class BinaryTreeNode<T> extends TreeMap<T, BinaryTreeNode<T>> {
+public class BinaryTreeNode<T> {
 
     private T data;
 
@@ -26,5 +24,19 @@ public class BinaryTreeNode<T> extends TreeMap<T, BinaryTreeNode<T>> {
 
     public BinaryTreeNode(T data) {
         this.setData(data);
+    }
+
+    public void setLeft(final BinaryTreeNode<T> left) {
+        if (left != null) {
+            this.left = left;
+            left.setParent(this);
+        }
+    }
+
+    public void setRight(final BinaryTreeNode<T> right) {
+        if (right != null) {
+            this.right = right;
+            right.setParent(this);
+        }
     }
 }
