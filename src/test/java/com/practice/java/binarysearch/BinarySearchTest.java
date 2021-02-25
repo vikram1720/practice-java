@@ -51,4 +51,12 @@ class BinarySearchTest {
         List<Integer> input4 = List.of(3, 2, 1);
         assertEquals(2, binarySearch.findLocalMinimumIndex(input4, 0, input4.size() - 1));
     }
+
+    @Test
+    void findMinimumInCyclicallySortedArray() {
+        List<Integer> input1 = List.of(378, 478, 550, 631, 103, 203, 220, 234, 279, 368);
+        assertEquals(103, binarySearch.findMinimumInCyclicallySortedArray(input1));
+        List<Integer> input2 = List.of(378, 478, 550, 631, 103, 203);
+        assertEquals(103, binarySearch.findMinimumInCyclicallySortedArray(input2));
+    }
 }

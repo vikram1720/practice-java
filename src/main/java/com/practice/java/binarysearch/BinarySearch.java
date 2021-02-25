@@ -85,4 +85,18 @@ public class BinarySearch {
         }
         return -1;
     }
+
+    public int findMinimumInCyclicallySortedArray(final List<Integer> values) {
+        int low = 0;
+        int high = values.size() - 1;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (values.get(mid) > values.get(high)) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        return values.get(low);
+    }
 }
