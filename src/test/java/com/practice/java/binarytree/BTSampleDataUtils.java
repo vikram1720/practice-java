@@ -5,7 +5,7 @@ package com.practice.java.binarytree;
  */
 public final class BTSampleDataUtils {
 
-    public static BinaryTreeNode<Integer> prepareTree() {
+    public static BinaryTreeNode<Integer> prepareTreeS1() {
         BinaryTreeNode<Integer> c = BinaryTreeDataUtils.prepareNode(271,28,0);
         BinaryTreeNode<Integer> g = BinaryTreeDataUtils.prepareNode(3,17,null);
         BinaryTreeNode<Integer> f = BinaryTreeDataUtils.prepareNode(561, null, g);
@@ -21,6 +21,12 @@ public final class BTSampleDataUtils {
 
         return BinaryTreeDataUtils.prepareNode(314, b, i);
 
+    }
+
+    public static BinaryTreeNode<Integer> prepareTreeS2() {
+        BinaryTreeNode<Integer> b = BinaryTreeDataUtils.prepareNode(2,4,5);
+        BinaryTreeNode<Integer> c = BinaryTreeDataUtils.prepareNode(3,null,null);
+        return BinaryTreeDataUtils.prepareNode(1, b, c);
     }
 
     private BTSampleDataUtils() {

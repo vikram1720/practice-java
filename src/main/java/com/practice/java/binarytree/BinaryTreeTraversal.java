@@ -66,14 +66,32 @@ public final class BinaryTreeTraversal {
         if (node != null) {
             BinaryTreeNode<Integer> root = node;
             boolean leftDone = false;
+            boolean ignoreRoot = false;
             while (root != null) {
-                traversalData.add(root.getData());
+                if (!ignoreRoot) {
+                    traversalData.add(root.getData());
+                }
                 if (!leftDone && root.getLeft() != null) {
                     root = root.getLeft();
+                    ignoreRoot = false;
+                } else if (root.getRight() != null) {
+                    root = root.getRight();
                     leftDone = false;
-                }
-                if (root.getLeft() == null) {
+                    ignoreRoot = false;
+                } else if (root.getParent() != null) {
                     leftDone = true;
+                    while (root.getParent() != null && root == root.getParent()
+                                                                   .getRight()) {
+                        root = root.getParent();
+                    }
+                    if (root.getParent() != null) {
+                        root = root.getParent();
+                        ignoreRoot = true;
+                    } else {
+                        break;
+                    }
+                } else {
+                    break;
                 }
             }
         }
