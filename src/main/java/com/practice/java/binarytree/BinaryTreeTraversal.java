@@ -62,6 +62,23 @@ public final class BinaryTreeTraversal {
         }
     }
 
+    public static void preOrderTraversal(final BinaryTreeNode<Integer> node, final List<Integer> traversalData) {
+        if (node != null) {
+            BinaryTreeNode<Integer> root = node;
+            boolean leftDone = false;
+            while (root != null) {
+                traversalData.add(root.getData());
+                if (!leftDone && root.getLeft() != null) {
+                    root = root.getLeft();
+                    leftDone = false;
+                }
+                if (root.getLeft() == null) {
+                    leftDone = true;
+                }
+            }
+        }
+    }
+
     public static void postOrderTraversalWithoutParent(final BinaryTreeNode<Integer> root,
             final List<Integer> traversalData) {
         if (root != null) {
