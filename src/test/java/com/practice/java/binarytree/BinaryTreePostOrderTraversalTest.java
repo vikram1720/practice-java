@@ -29,4 +29,13 @@ class BinaryTreePostOrderTraversalTest {
         BinaryTreeTraversal.postOrderTraversalWithoutParent(root, actualResult);
         assertEquals(expectedResult, actualResult);
     }
+
+    @Test
+    void postOrderTraversalS3WithoutParentTest() {
+        BinaryTreeNode<Integer> root = BTSampleDataUtils.prepareTreeS3();
+        List<Integer> expectedResult = List.of(8, 4, 5, 2, 9, 10, 6, 7, 3, 1);
+        List<Integer> actualResult = new ArrayList<>();
+        BinaryTreeTraversal.postOrderTraversalWithoutParent(root, actualResult);
+        assertEquals(expectedResult, actualResult);
+    }
 }

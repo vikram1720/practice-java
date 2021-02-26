@@ -29,6 +29,18 @@ public final class BTSampleDataUtils {
         return BinaryTreeDataUtils.prepareNode(1, b, c);
     }
 
+    public static BinaryTreeNode<Integer> prepareTreeS3() {
+        BinaryTreeNode<Integer> d = BinaryTreeDataUtils.prepareNode(4, 8, null);
+        BinaryTreeNode<Integer> e = new BinaryTreeNode<>(5);
+        BinaryTreeNode<Integer> b = BinaryTreeDataUtils.prepareNode(2, d, e);
+
+        BinaryTreeNode<Integer> f = BinaryTreeDataUtils.prepareNode(6, 9, 10);
+        BinaryTreeNode<Integer> g = new BinaryTreeNode<>(7);
+        BinaryTreeNode<Integer> c = BinaryTreeDataUtils.prepareNode(3, f, g);
+
+        return BinaryTreeDataUtils.prepareNode(1, b, c);
+    }
+
     private BTSampleDataUtils() {
 
     }
