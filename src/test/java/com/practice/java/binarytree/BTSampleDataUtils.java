@@ -41,6 +41,23 @@ public final class BTSampleDataUtils {
         return BinaryTreeDataUtils.prepareNode(1, b, c);
     }
 
+
+    // fig 9.2. in EP Java.
+    public static BinaryTreeNode<String> prepareTreeS4() {
+        BinaryTreeNode<String> d = BinaryTreeDataUtils.prepareNode("d", "e", "f");
+        BinaryTreeNode<String> g = new BinaryTreeNode<>("g");
+        BinaryTreeNode<String> c = BinaryTreeDataUtils.prepareNode("c", d, g);
+
+        BinaryTreeNode<String> h = BinaryTreeDataUtils.prepareNode("h", "i", "j");
+
+        BinaryTreeNode<String> b = BinaryTreeDataUtils.prepareNode("b", c, h);
+
+        BinaryTreeNode<String> l = BinaryTreeDataUtils.prepareNode("l", "m", "n");
+        BinaryTreeNode<String> k = BinaryTreeDataUtils.prepareNode("k", l, new BinaryTreeNode<>("o"));
+
+        return BinaryTreeDataUtils.prepareNode("a", b, k);
+    }
+
     private BTSampleDataUtils() {
 
     }
