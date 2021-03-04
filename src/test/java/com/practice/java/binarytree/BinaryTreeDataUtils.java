@@ -25,6 +25,6 @@ public final class BinaryTreeDataUtils {
     }
 
     private BinaryTreeDataUtils() {
-
+        throw new UnsupportedOperationException();
     }
 }

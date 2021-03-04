@@ -5,9 +5,12 @@ package com.practice.java.binarytree;
  */
 public final class BTSampleDataUtils {
 
+    /**
+     * from EP Java page 123
+     */
     public static BinaryTreeNode<Integer> prepareTreeS1() {
-        BinaryTreeNode<Integer> c = BinaryTreeDataUtils.prepareNode(271,28,0);
-        BinaryTreeNode<Integer> g = BinaryTreeDataUtils.prepareNode(3,17,null);
+        BinaryTreeNode<Integer> c = BinaryTreeDataUtils.prepareNode(271, 28, 0);
+        BinaryTreeNode<Integer> g = BinaryTreeDataUtils.prepareNode(3, 17, null);
         BinaryTreeNode<Integer> f = BinaryTreeDataUtils.prepareNode(561, null, g);
         BinaryTreeNode<Integer> b = BinaryTreeDataUtils.prepareNode(6, c, f);
 
@@ -16,7 +19,7 @@ public final class BTSampleDataUtils {
         BinaryTreeNode<Integer> k = BinaryTreeDataUtils.prepareNode(1, l, n);
         BinaryTreeNode<Integer> j = BinaryTreeDataUtils.prepareNode(2, null, k);
 
-        BinaryTreeNode<Integer> o = BinaryTreeDataUtils.prepareNode(271,null,28);
+        BinaryTreeNode<Integer> o = BinaryTreeDataUtils.prepareNode(271, null, 28);
         BinaryTreeNode<Integer> i = BinaryTreeDataUtils.prepareNode(6, j, o);
 
         return BinaryTreeDataUtils.prepareNode(314, b, i);
@@ -24,11 +27,14 @@ public final class BTSampleDataUtils {
     }
 
     public static BinaryTreeNode<Integer> prepareTreeS2() {
-        BinaryTreeNode<Integer> b = BinaryTreeDataUtils.prepareNode(2,4,5);
-        BinaryTreeNode<Integer> c = BinaryTreeDataUtils.prepareNode(3,null,null);
+        BinaryTreeNode<Integer> b = BinaryTreeDataUtils.prepareNode(2, 4, 5);
+        BinaryTreeNode<Integer> c = BinaryTreeDataUtils.prepareNode(3, null, null);
         return BinaryTreeDataUtils.prepareNode(1, b, c);
     }
 
+    /**
+     * from https://towardsdatascience.com/4-types-of-tree-traversal-algorithms-d56328450846
+     */
     public static BinaryTreeNode<Integer> prepareTreeS3() {
         BinaryTreeNode<Integer> d = BinaryTreeDataUtils.prepareNode(4, 8, null);
         BinaryTreeNode<Integer> e = new BinaryTreeNode<>(5);
@@ -41,8 +47,9 @@ public final class BTSampleDataUtils {
         return BinaryTreeDataUtils.prepareNode(1, b, c);
     }
 
-
-    // fig 9.2. in EP Java.
+    /**
+     * fig 9.2. in EP Java.
+     */
     public static BinaryTreeNode<String> prepareTreeS4() {
         BinaryTreeNode<String> d = BinaryTreeDataUtils.prepareNode("d", "e", "f");
         BinaryTreeNode<String> g = new BinaryTreeNode<>("g");
@@ -59,6 +66,6 @@ public final class BTSampleDataUtils {
     }
 
     private BTSampleDataUtils() {
-
+        throw new UnsupportedOperationException();
     }
 }
