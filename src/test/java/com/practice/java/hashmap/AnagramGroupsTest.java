@@ -9,9 +9,6 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author <a href="mailto:vikram.sundar@castandcrew.com">Vikram Sundar Subbiah</a>
- */
 @Slf4j
 class AnagramGroupsTest {
 

@@ -3,9 +3,6 @@ package com.practice.java.binarytree;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author <a href="mailto:vikram.sundar@castandcrew.com">Vikram Sundar Subbiah</a>
- */
 public final class BinaryTreeLeavesUtils {
 
     public static <T> List<T> leavesLeftToRight(final BinaryTreeNode<T> node) {

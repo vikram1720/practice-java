@@ -4,9 +4,6 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * @author <a href="mailto:vikram.sundar@castandcrew.com">Vikram Sundar Subbiah</a>
- */
 public class Palindrome {
 
     public boolean isPalindrome(final String value) {

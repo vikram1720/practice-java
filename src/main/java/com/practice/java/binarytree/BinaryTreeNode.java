@@ -5,9 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author <a href="mailto:vikram.sundar@castandcrew.com">Vikram Sundar Subbiah</a>
- */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

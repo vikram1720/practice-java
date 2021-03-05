@@ -5,9 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @author <a href="mailto:vikram.sundar@castandcrew.com">Vikram Sundar Subbiah</a>
- */
 class PalindromeTest {
 
     private Palindrome palindrome;

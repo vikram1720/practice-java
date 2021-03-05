@@ -4,9 +4,6 @@ import lombok.Builder;
 
 import java.util.List;
 
-/**
- * @author <a href="mailto:vikram.sundar@castandcrew.com">Vikram Sundar Subbiah</a>
- */
 @Builder
 public final class BinaryTreeTraversal {
 

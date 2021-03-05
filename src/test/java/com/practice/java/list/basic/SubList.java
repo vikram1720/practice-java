@@ -5,9 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-/**
- * @author <a href="mailto:vikram.sundar@castandcrew.com">Vikram Sundar Subbiah</a>
- */
 public class SubList {
 
     @Test

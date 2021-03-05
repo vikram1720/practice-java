@@ -1,8 +1,5 @@
 package com.practice.java.binarytree;
 
-/**
- * @author <a href="mailto:vikram.sundar@castandcrew.com">Vikram Sundar Subbiah</a>
- */
 public final class BTSampleDataUtils {
 
     /**

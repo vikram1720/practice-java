@@ -1,8 +1,5 @@
 package com.practice.java.binarytree;
 
-/**
- * @author <a href="mailto:vikram.sundar@castandcrew.com">Vikram Sundar Subbiah</a>
- */
 public final class BinaryTreeDataUtils {
 
     public static <T> BinaryTreeNode<T> prepareNode(final T rootData, final T leftData, final T rightData) {

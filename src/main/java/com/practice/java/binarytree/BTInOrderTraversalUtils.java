@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-/**
- * @author <a href="mailto:vikram.sundar@castandcrew.com">Vikram Sundar Subbiah</a>
- */
 public final class BTInOrderTraversalUtils {
 
     public static List<Integer> inOrderTraversalWithoutParent(final BinaryTreeNode<Integer> root) {
