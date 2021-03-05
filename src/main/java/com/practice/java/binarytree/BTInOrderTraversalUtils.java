@@ -74,7 +74,8 @@ public final class BTInOrderTraversalUtils {
                                                    .getData());
                     } else {
                         stack.addFirst(new BTNodeAndTraversalState(false, node.getRight()));
-                        stack.addFirst(new BTNodeAndTraversalState(true, node));
+                        nodeState.setProcessed(true);
+                        stack.addFirst(nodeState);
                         stack.addFirst(new BTNodeAndTraversalState(false, node.getLeft()));
                     }
                 }

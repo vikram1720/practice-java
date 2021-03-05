@@ -1,50 +1,57 @@
 package com.practice.java.binarytree;
 
 import com.practice.java.binarytree.pojo.BTNodeAndTraversalState;
+import lombok.Builder;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-public final class BTPostOrderTraversalUtils {
+@Builder
+public final class BTPreOrderTraversalUtils {
 
-    public static List<Integer> postOrderTraversalWithoutParent(final BinaryTreeNode<Integer> root) {
+    public static List<Integer> preOrderTraversalWithoutParent(final BinaryTreeNode<Integer> root) {
         List<Integer> traversalData = new ArrayList<>();
-        postOrderTraversalWithoutParentHelper(root, traversalData);
+        preOrderTraversalWithoutParentHelper(root, traversalData);
         return traversalData;
     }
 
-    private static void postOrderTraversalWithoutParentHelper(final BinaryTreeNode<Integer> root,
+    private static void preOrderTraversalWithoutParentHelper(final BinaryTreeNode<Integer> root,
             final List<Integer> traversalData) {
         if (root != null) {
-            postOrderTraversalWithoutParentHelper(root.getLeft(), traversalData);
-            postOrderTraversalWithoutParentHelper(root.getRight(), traversalData);
             traversalData.add(root.getData());
+            preOrderTraversalWithoutParentHelper(root.getLeft(), traversalData);
+            preOrderTraversalWithoutParentHelper(root.getRight(), traversalData);
         }
     }
 
-    public static List<Integer> postOrderTraversal(final BinaryTreeNode<Integer> node) {
+    public static List<Integer> preOrderTraversal(final BinaryTreeNode<Integer> node) {
         List<Integer> traversalData = new ArrayList<>();
         if (node != null) {
             BinaryTreeNode<Integer> root = node;
             boolean leftDone = false;
+            boolean ignoreRoot = false;
             while (root != null) {
+                if (!ignoreRoot) {
+                    traversalData.add(root.getData());
+                }
                 if (!leftDone && root.getLeft() != null) {
                     root = root.getLeft();
+                    ignoreRoot = false;
                 } else if (root.getRight() != null) {
                     root = root.getRight();
                     leftDone = false;
+                    ignoreRoot = false;
                 } else if (root.getParent() != null) {
-                    traversalData.add(root.getData());
+                    leftDone = true;
                     while (root.getParent() != null && root == root.getParent()
                                                                    .getRight()) {
                         root = root.getParent();
-                        traversalData.add(root.getData());
                     }
                     if (root.getParent() != null) {
                         root = root.getParent();
-                        leftDone = true;
+                        ignoreRoot = true;
                     } else {
                         break;
                     }
@@ -56,7 +63,7 @@ public final class BTPostOrderTraversalUtils {
         return traversalData;
     }
 
-    public static List<Integer> postOrderTraversalWithStack(final BinaryTreeNode<Integer> root) {
+    public static List<Integer> preOrderTraversalWithStack(final BinaryTreeNode<Integer> root) {
         List<Integer> traversalData = new ArrayList<>();
         Deque<BTNodeAndTraversalState> stack = new ArrayDeque<>();
         stack.addFirst(new BTNodeAndTraversalState(false, root));
@@ -67,17 +74,17 @@ public final class BTPostOrderTraversalUtils {
                 if (nodeAndTraversalState.isProcessed()) {
                     traversalData.add(node.getData());
                 } else {
-                    nodeAndTraversalState.setProcessed(true);
-                    stack.addFirst(nodeAndTraversalState);
                     stack.addFirst(new BTNodeAndTraversalState(false, node.getRight()));
                     stack.addFirst(new BTNodeAndTraversalState(false, node.getLeft()));
+                    nodeAndTraversalState.setProcessed(true);
+                    stack.addFirst(nodeAndTraversalState);
                 }
             }
         }
         return traversalData;
     }
 
-    private BTPostOrderTraversalUtils() {
+    private BTPreOrderTraversalUtils() {
         throw new UnsupportedOperationException();
     }
 }
