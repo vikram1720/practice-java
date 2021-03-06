@@ -40,6 +40,36 @@ public final class BTConstructWithInOrderTraversal {
                                                                          nodeToInorderIdx));
     }
 
+    public static BinaryTreeNode<Integer> constructWithPostOrderTraversal(final List<Integer> inorderTraversal,
+            final List<Integer> postOrderTraversal) {
+        Map<Integer, Integer> nodeToInorderIdx = IntStream.range(0, inorderTraversal.size())
+                                                          .boxed()
+                                                          .collect(Collectors.toMap(i -> inorderTraversal.get(i),
+                                                                                    i -> i));
+        return constructWithPostOrderTraversalHelper(postOrderTraversal, 0, postOrderTraversal.size() - 1, 0,
+                                                    inorderTraversal.size() - 1, nodeToInorderIdx);
+    }
+
+    private static BinaryTreeNode<Integer> constructWithPostOrderTraversalHelper(final List<Integer> postOrder,
+            final int postOrderStart, final int postOrderEnd, final int inorderStart, final int inorderEnd,
+            final Map<Integer, Integer> nodeToInorderIdx) {
+//                log.info("preS - {} , preE - {}, inS - {}, inE - {}", postOrderStart, postOrderEnd, inorderStart, inorderEnd);
+        if (inorderStart > inorderEnd || postOrderStart > postOrderEnd) {
+            return null;
+        }
+        int root = postOrder.get(postOrderEnd);
+        Integer inOrderIdx = nodeToInorderIdx.get(root);
+        int leftSubTreeSize = inOrderIdx - inorderStart;
+//                log.info("root - {}, inOrderIdx - {}, leftSubTreeSize {}", root, inOrderIdx, leftSubTreeSize);
+        return new BinaryTreeNode<>(root, null, constructWithPostOrderTraversalHelper(postOrder, postOrderStart,
+                                                                                     postOrderStart + leftSubTreeSize - 1,
+                                                                                     inorderStart, inOrderIdx,
+                                                                                     nodeToInorderIdx),
+                                    constructWithPostOrderTraversalHelper(postOrder, postOrderStart + leftSubTreeSize,
+                                                                         postOrderEnd - 1, inOrderIdx + 1, inorderEnd,
+                                                                         nodeToInorderIdx));
+    }
+
     private BTConstructWithInOrderTraversal() {
         throw new UnsupportedOperationException();
     }
