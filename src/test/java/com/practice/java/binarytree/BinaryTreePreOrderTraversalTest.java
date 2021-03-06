@@ -6,7 +6,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BinaryTreePreOrderTraversalTests {
+public class BinaryTreePreOrderTraversalTest {
 
     @Test
     void preOrderTraversalS1WithoutParentTest() {
