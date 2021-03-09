@@ -52,3 +52,4 @@ class BTConstructWithPreOrderTraversalWithNullTest {
         return result;
     }
 }
+
